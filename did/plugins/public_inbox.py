@@ -131,6 +131,9 @@ class PublicInbox(object):
 
             if not msg.is_thread_root():
                 root = self.__get_thread_root(msg)
+                if not root:
+                    continue
+
                 root_id = root.id()
                 if root_id in found:
                     continue
